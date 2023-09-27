@@ -1,0 +1,44 @@
+
+#logging in
+Client->Server: Sends login details
+Server-> Database: Checks if Account details are correct
+Database->Server: Returns Credentials 
+Server->Client: Grants/Denies Credentials
+
+
+#if credentials are given
+Server->Database: Request's  Client's account data 
+Database->Server: Sends Client's account data
+Server->Client: Loads Account Details into View
+
+#initial start up
+Client->Server: See current sales
+Server->Database: Request current sales at current time
+Database-> Server: Retrieves data from database based on query
+
+
+#Setting up account
+Client->Server: Adds/Removes Classes they have taken
+Server->Database: Sanitizes request
+Database->Server: Sends confirmation whether request could be carried out
+Server->Client: Sends Database confirmation
+
+
+#Setting up a sell request
+Client->Server: Puts book up for sale
+Server->Database: Checks if sale request is valid
+Server->Client: Respond back with valid/invalid request
+
+
+#Setting up a buy request
+Client->Server: Sends a buy request to the user who has made the sale
+Server->Database: Puts buyer request to sellers "queue"
+Server->Client: Sends confirimation
+
+
+#searching Marketplace
+Client->Server: Tags for search sent
+Server->Database: Request sanitized
+Database->Server: Sends query results back
+Server->Client: Sends back sanitized data
+
