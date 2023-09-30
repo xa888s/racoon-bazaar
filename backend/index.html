@@ -10,37 +10,43 @@
 </head>
 <body>
     <!-- Difference between POST and GET
-    POST: Use to send data to modify server state
-    GET: Retrieve data that does not modify the server state
+ 
     -->
     <h1>Test Driver HTML for Server</h1>
-    <form action="/sendData" method="post">
-        <label for="test_data">Enter string you want to send</label>
-        <input 
-            id="test_data"
-            type:="text"
-            content="content_field"
-            value="Enter something here">
-        <input type="submit" value="OK">
-    </form>
-    
     <h1>Display all sales currently in database</h1>
+    <!--
+        action attribute: The action attribute is used to send a "case" to the server
+        Example: When the Submit Button is pressed, the action attribute is sent to server.js
+                In this case, '/retrieveSales' is sent to server.js, where whatever behaviour is 
+                allocated to that "case" statement happens (which happens to be the call to function getSells())
+
+        POST: Use to send data to modify server state
+        GET: Retrieve data that does not modify the server state
+    -->
     <form action="/retrieveSales" method="get">
         <input type="submit" value="Display All Sales">
     </form>
     
     <h1>Display a certain books from a course for sale</h1>
-    <form action="/searchSales" method="POST">
-        <input
-            id = "course"
-            type="text"
-            content="content_field"
-            value="Enter course tag here">
+    <form action="/searchSales" method="post">
+        <input type="text" name="courseNumber">
         <input type="submit" value="Find certain books">
     </form>
     <h1>Add a book to the server</h1>
-    <form>
+    <form action="/insertOrder" method="post">
+        <label for="bookName">Book Name</label>
+        <input type="text" id="bookName" name="bookName"><br>
+        
+        <label for="author">Author Name</label>
+        <input type="text" id="author" name="author"><br>
 
+        <label for="edition">Book Edition</label>
+        <input type="number" id="edition" name="edition"><br>
+
+        <label for="course">Course</label>
+        <input type="text" id="course" name="course">
+        <input type="submit" value="Insert Order">
     </form>
 </body>
+
 </html>
