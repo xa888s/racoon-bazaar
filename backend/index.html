@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sample Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body { padding-top: 50px; }
+  </style>
+</head>
+<body>
+    <!-- Difference between POST and GET
+    POST: Use to send data to modify server state
+    GET: Retrieve data that does not modify the server state
+    -->
+    <h1>Test Driver HTML for Server</h1>
+    <form action="/sendData" method="post">
+        <label for="test_data">Enter string you want to send</label>
+        <input 
+            id="test_data"
+            type:="text"
+            content="content_field"
+            value="Enter something here">
+        <input type="submit" value="OK">
+    </form>
+    
+    <h1>Display all sales currently in database</h1>
+    <form action="/retrieveSales" method="get">
+        <input type="submit" value="Display All Sales">
+    </form>
+    
+    <h1>Display a certain books from a course for sale</h1>
+    <form action="/searchSales" method="POST">
+        <input
+            id = "course"
+            type="text"
+            content="content_field"
+            value="Enter course tag here">
+        <input type="submit" value="Find certain books">
+    </form>
+    <h1>Add a book to the server</h1>
+    <form>
+
+    </form>
+</body>
+</html>

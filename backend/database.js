@@ -18,21 +18,24 @@ const pool = mysql.createPool({
     database:'sql3649600'
 }).promise()
 
-
+//gets all the sales in the database
 export async function getSells(){
     const [result] = await pool.query("SELECT * FROM MarketplaceSell")
     return result;
 }
 
+//inserts a data entry into MarketplaceSell table
 export async function createSale(buyerID, name, author, edition, course ){
-    const [result] = await pool.query('INSERT INTO MarketPlaceSell(buyerID,name,author, edition, course) VALUES (?,?,?,?)', [buyerID, name, author, edition, course])
+    const [result] = await pool.query('INSERT INTO MarketplaceSell(buyerID,name,author, edition, course) VALUES (?,?,?,?)', [buyerID, name, author, edition, course])
     return result.insertId;
 
 }
 
+//searchs the database based of one criterion and returns it
+export async function getCertainSale(category){
+    const [result] = await pool.query("SELECT * from MarketplaceSell WHERE COURSE=?",[category]);
+    
+    return result;
+}
 
 
-/*
-const sells = await getSells()
-console.log(sells)
-*/
