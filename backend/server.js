@@ -20,25 +20,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-
+//set homepage on intial load of web page
 app.get('/', async (req,res)=>{
    res.sendFile(path.join(__dirname,'/views/bazaar.html'));
 });
-
-
-
-app.get('/retrieveSales',async(req,res)=>{
-    const sells = await getSells();
-    res.send(sells);
-})
-
-
-app.post('/searchSales',async(req,res)=>{
-    const sales = await getCertainSale(bookCourseNumber);
-    res.send(sales);
-})
-
-
 
 app.post('/insertOrder', async(req,res)=>
 {   //put body properties as variables
@@ -46,7 +31,8 @@ app.post('/insertOrder', async(req,res)=>
     const courseCode = req.body.course_code;
     const bookCond = req.body.condition;
     const bookPrice = req.body.price;
-    
+
+   //iteration 2 MUST needs: sanitize input to prevent malicious SQL quackery
     const order = await insertSale(bookName, courseCode, bookCond, bookPrice);
 
     //show the database with all the sales
@@ -54,6 +40,18 @@ app.post('/insertOrder', async(req,res)=>
     res.send(sells);
 
     
+})
+
+
+//as it stands, all retrieve functions are currently sending raw JSON object files to output
+app.get('/retrieveSales',async(req,res)=>{
+    const sells = await getSells();
+    res.send(sells);
+})
+
+app.post('/searchSales',async(req,res)=>{
+    const sales = await getCertainSale(bookCourseNumber);
+    res.send(sales);
 })
 
 app.post('/searchSalesByName', async(req,res)=>{
