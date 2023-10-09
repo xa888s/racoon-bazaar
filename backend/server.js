@@ -34,6 +34,8 @@ app.get('/contact', async(req,res)=>{
    res.sendFile(path.join(__dirname,'/views/contact.html'));
 });
 
+
+//INSERTERS
 app.post('/insertOrder', async(req,res)=>
 {   //put body properties as variables
     const bookName = req.body.book_name;
@@ -51,7 +53,7 @@ app.post('/insertOrder', async(req,res)=>
     
 })
 
-
+//RETRIEVERS
 //as it stands, all retrieve functions are currently sending raw JSON object files to output
 app.get('/retrieveSales',async(req,res)=>{
     const sells = await getSells();
