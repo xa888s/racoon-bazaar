@@ -35,3 +35,8 @@ Iteration 2 Plans on Backend:
     -Sculpt JSON object output into something more presentable
     -Begin a table to house accounts
     -Relate accounts to buy and sell requests
+
+
+Iteration 1 Sequence Diagram:
+
+![Racoon Bazaar Iteration 1](https://github.com/xa888s/racoon-bazaar/assets/144485576/ec09e23a-05b5-40b2-937b-61cd7c0b9841)
