@@ -19,10 +19,19 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
+//SETTERs
 //set homepage on intial load of web page
 app.get('/', async (req,res)=>{
    res.sendFile(path.join(__dirname,'/views/bazaar.html'));
+});
+
+
+app.get('/about', async(req,res)=>{
+   res.sendFile(path.join(__dirname,'/views/about.html'));
+});
+
+app.get('/contact', async(req,res)=>{
+   res.sendFile(path.join(__dirname,'/views/contact.html'));
 });
 
 app.post('/insertOrder', async(req,res)=>
