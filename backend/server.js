@@ -1,66 +1,81 @@
-//Server file where certain behaviour will happen
+/*
+Server file where certain behaviour will happen.
+Think of this file as Switch Statement
 
-
+*/
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 //local functions from database.js
-import {getCertainSale, getSells, insertSale} from './database.js'
+import {getSells, insertSale, getBookNameSales,getCourseCodeSales, getConditionSales,
+getPriceRangeSales} from './database.js'
 //to fix __dirname errors
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 
-
+//Module helps parse data sent from HTTP Req Body
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-/*
-Anything in the '' determines what the "function" happens
-'/' is the default case aka the index html
 
-*/
 app.get('/', async (req,res)=>{
-   res.sendFile(path.join(__dirname,'/index.html'));
+   res.sendFile(path.join(__dirname,'/views/bazaar.html'));
 });
 
 
 
-//function to get all the sale orders on the database
 app.get('/retrieveSales',async(req,res)=>{
-    console.log("retrieving sales");
     const sells = await getSells();
     res.send(sells);
 })
 
-app.post('/searchSales',async(req,res)=>{
 
-    const bookCourseNumber = req.body.courseNumber;
+app.post('/searchSales',async(req,res)=>{
     const sales = await getCertainSale(bookCourseNumber);
     res.send(sales);
 })
 
 
-//function to insert into database and then returns the entire database
+
 app.post('/insertOrder', async(req,res)=>
 {   //put body properties as variables
-    const bookName = req.body.bookName;
-    const author = req.body.author;
-    const edition = req.body.edition;
-    const course = req.body.course;
+    const bookName = req.body.book_name;
+    const courseCode = req.body.course_code;
+    const bookCond = req.body.condition;
+    const bookPrice = req.body.price;
     
-    //put variables through
-    const order = await insertSale(bookName, author, edition, course);
+    const order = await insertSale(bookName, courseCode, bookCond, bookPrice);
 
     //show the database with all the sales
     const sells = await getSells();
     res.send(sells);
+
+    
+})
+
+app.post('/searchSalesByName', async(req,res)=>{
+    const bookSearch = await getBookNameSales(req.body.book_name);
+    res.send(bookSearch);
 })
 
 
+app.post('/searchSalesByCourse', async(req,res)=>{
+    const bookSearch = await getCourseCodeSales(req.body.course_code);
+    res.send(bookSearch);
+})
 
+app.post('/searchSalesByCondition', async(req,res)=>{
+    const bookSearch = await getConditionSales(req.body.condition);
+    res.send(bookSearch);
+})
+
+app.post('/searchByPriceRange', async(req,res)=>{
+    const bookSearch = await getPriceRangeSales(req.body.minPrice, req.body.maxPrice);
+    res.send(bookSearch);
+})
 
 console.log("Server is running on port 3001");
 
