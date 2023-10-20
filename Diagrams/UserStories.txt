@@ -1,0 +1,11 @@
+As a <type of user>, I want <some goal> so that <some reason>
+
+
+As a student looking for books, I want to buy textbooks so that I can understand my courses better
+
+As a student, I want to list my used textbooks so that I can make some money back
+    -As a student looking to sell books, I want to have 
+
+As a student looking to see what courses are like, I want to see what kind of textbooks are course has so that I can
+have a preview on what a course has
+

@@ -72,3 +72,18 @@ export async function getPriceRangeSales(min, max){
     const [result] = await pool.query("SELECT * from Inventory WHERE book_price BETWEEN "+min+" AND " +max);
     return result;
 }
+
+/*
+    Function that creates a user in to the user table
+    Params: Email, FirstName, Last NAme, Major, Phone number, Password
+    For now, simple
+    
+
+    **TODO**
+    Make sure there aren't duplicate users created
+
+*/
+export async function createUser(firstName, lastName, major, phoneNumber, password, email){
+    const [result] = await pool.query("INSERT INTO Accounts(user_firstName, user_lastName, user_major, user_phone_number,password, email) VALUES (?,?,?,?,?,?)", [firstName, lastName, major, phoneNumber, password,email])
+    return result;   
+}
