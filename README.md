@@ -42,8 +42,15 @@ Iteration 1 Sequence Diagram:
 ![Racoon Bazaar Iteration 1](https://github.com/xa888s/racoon-bazaar/assets/144485576/ec09e23a-05b5-40b2-937b-61cd7c0b9841)
 
 
-Iteration 1 Database UML Diagram:
+Iteration 1 Database Class Diagram:
 
 ![Bazaar Iteration 1](https://github.com/xa888s/racoon-bazaar/assets/144485576/4aef15c8-83b9-4ab1-8b11-aa7e33791a8a)
 
 
+Iteration 2 Database Class Diagram:
+
+![Alt text](Diagrams/DatabaseClassDiagramIteration2.png)
+
+
+Iteration 2 Sequence Diagrams:
+![Alt text](Diagrams/SequenceDiagramIteration2.png)
