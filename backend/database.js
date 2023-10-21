@@ -84,6 +84,17 @@ export async function getPriceRangeSales(min, max){
 
 */
 export async function createUser(firstName, lastName, major, phoneNumber, password, email){
-    const [result] = await pool.query("INSERT INTO Accounts(user_firstName, user_lastName, user_major, user_phone_number,password, email) VALUES (?,?,?,?,?,?)", [firstName, lastName, major, phoneNumber, password,email])
+    const [result] = await pool.query("INSERT INTO Accounts(user_firstName, user_lastName, user_major, user_phoneNumber,user_password, user_email) VALUES (?,?,?,?,?,?)", [firstName, lastName, major, phoneNumber, password,email])
     return result;   
+}
+
+export async function loginUser(email, password){
+    const [result] = await pool.query("SELECT user_email from Accounts WHERE user_email='" + email +"' AND " + "user_password='" + password +"'" );
+    return result;
+}
+
+export async function getHashedPassword(email){
+    const [result] = await pool.query("SELECT user_password from Accounts WHERE user_email='" + email +"'");
+    //console.log(result[0].user_password);
+    return result[0].user_password;
 }
