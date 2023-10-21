@@ -13,6 +13,8 @@ nodeJS Libraries/Frameworks/etc Used:
     
     -mysql2: for database handling
 
+    -bcrypt: for hashing passwords and all that jazz
+
 Iteration 1 Progress on Backend:
 
     -Server is set to receive requests from HTML views.
@@ -39,12 +41,11 @@ Iteration 2 Plans on Backend:
 
 Iteration 1 Sequence Diagram:
 
-![Racoon Bazaar Iteration 1](https://github.com/xa888s/racoon-bazaar/assets/144485576/ec09e23a-05b5-40b2-937b-61cd7c0b9841)
-
+![Iteration 1 Sequence Diagram](<Diagrams/Racoon Bazaar Iteration 1.png>)
 
 Iteration 1 Database Class Diagram:
 
-![Bazaar Iteration 1](https://github.com/xa888s/racoon-bazaar/assets/144485576/4aef15c8-83b9-4ab1-8b11-aa7e33791a8a)
+![Iteration Database Class 1](<Diagrams/Bazaar Iteration 1.png>)
 
 
 Iteration 2 Database Class Diagram:
