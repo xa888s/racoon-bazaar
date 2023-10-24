@@ -5,17 +5,17 @@ Best marketplace in the world :D
 
 ### nodeJS Libraries/Frameworks/etc Used: 
 
-    - body-parser: for processing HTTP request data
+    - [Body-parser](https://www.npmjs.com/package/body-parser): for processing HTTP request data
     
-    - dotenv: for creation and use of environment variables for things such as database info, api keys, etc
+    - [Dotenv](https://www.npmjs.com/package/dotenv): for creation and use of environment variables for things such as database info, api keys, etc
     
-    - express: for server handling
+    - [Express](https://www.npmjs.com/package/express): for server handling
     
-    - mysql2: for database handling
+    - [mysql2](https://www.npmjs.com/package/mysql2): for database handling
 
-    - bcrypt: for hashing passwords and all that jazz
+    - [bcrypt](https://www.npmjs.com/package/bcrypt): for hashing passwords and all that jazz
 
-    - passportJS: for persistent login session
+    - [Passport](https://www.npmjs.com/package/passport): for persistent login session
 
 ### Iteration 1 Progress on Backend:
 

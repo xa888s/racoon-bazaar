@@ -21,7 +21,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-const users = [];
+import session from "express-session";
+//import {passport} from './passport-config.js';
+
+
+
+//tell express to use sessions
+app.use(session({
+    secret: "A secret for this thing",
+    resave: true,
+    saveUninitialized: true
+}))
+
+//app.use(passport.initialize());
+//app.use(passport.session);
+
+
+
+
+
 //SETTERs
 //set homepage on intial load of web page
 app.get('/', async (req,res)=>{
@@ -119,7 +137,9 @@ app.post('/login', async(req,res)=>{
         //Queries the database by looking for the email, function returns 
         const userAuthenticate = await getHashedPassword(req.body.email);
         //using bcrypt, compaires the plaintext password to the hashed password from the database
+        
         const isMatch = await bcrypt.compare(req.body.password, userAuthenticate);
+        /*
         //if the match is true, grant session token (passportjs)
         if(isMatch){
 
@@ -129,7 +149,7 @@ app.post('/login', async(req,res)=>{
             
         }
         console.log("AUTHENTICATED???? " + isMatch);
-
+        */
 
         //res.send(userAuthenticate);
 
