@@ -15,6 +15,8 @@ nodeJS Libraries/Frameworks/etc Used:
 
     -bcrypt: for hashing passwords and all that jazz
 
+    -passportJS: for persistent login session
+
 Iteration 1 Progress on Backend:
 
     -Server is set to receive requests from HTML views.
