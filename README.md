@@ -57,3 +57,6 @@ Iteration 2 Database Class Diagram:
 
 Iteration 2 Sequence Diagrams:
 ![Alt text](Diagrams/SequenceDiagramIteration2.png)
+
+
+Knowledge of GIT:
