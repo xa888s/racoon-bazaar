@@ -1,16 +1,16 @@
 # Racoon Bazaar
 
-# Introduction
+## Introduction
 
 
-# System Overview
+## System Overview
 The purpose for Racoon Bazaar is to have a platform for students to buy and sell their textbooks they no longer need
 
-# Design Considerations
-The system 
+## Design Considerations
+The system is designed to be used by SFU students, who we can assume are more well-versed with dealing with online platforms such as this.
 
 
-# Archectural Strategies
+## Archectural Strategies
 The system will be build using Node.js with various modules such as:
     
     - [Body-parser](https://www.npmjs.com/package/body-parser): for processing HTTP request data
@@ -25,9 +25,9 @@ The system will be build using Node.js with various modules such as:
 
     - [Passport](https://www.npmjs.com/package/passport): for persistent login session
 
-# Methods and Instrumentation
+## Methods and Instrumentation
 
-# User Stories
+## User Stories
 <details>
 
 
@@ -48,7 +48,7 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 
 
 
-# Scenarios
+## Scenarios
 <details>
 
 <summary>Scenario: Putting a book up for sale</summary>
@@ -71,6 +71,7 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 
 <details>
 <summary>Scenario: Searching for a book </summary>
+
 ##### Initial Assumption
 - A user is looking for a book related to their major. Each book can be related to a major. They are already authenticated. 
 
@@ -85,21 +86,82 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 
 ##### System State on Completion
 - 
+</details>
 
+
+
+<details>
+<summary>Scenario: Searching for a book </summary>
+
+##### Initial Assumption
+- A user is looking for a book related to their major. Each book can be related to a major. They are already authenticated. 
+
+
+##### Normal
+- The user chooses to search for a book based of the major. They are prompted to look for a book via major. The input is then sent off to the server.
+
+##### What Can Go Wrong
+- The user inputs a major that isn't in the database. It would return.
+
+- 
+
+##### System State on Completion
+- 
+</details>
+
+<details>
+<summary>Scenario: Login </summary>
+
+##### Initial Assumption
+- 
+
+
+##### Normal
+- 
+
+##### What Can Go Wrong
+- 
+
+- 
+
+##### System State on Completion
+- 
+
+</details>
+
+<details>
+<summary>Scenario: Registering an account </summary>
+
+##### Initial Assumption
+- 
+
+
+##### Normal
+- 
+
+##### What Can Go Wrong
+- 
+
+- 
+
+##### System State on Completion
+- 
 
 </details>
 
 
 
-# Detailied System Design
+
+## Detailied System Design
+
+**** DIAGRAMS WILL GO HERE ******
 
 
 
 
+## Requirements
 
-# Requirements
-
-## Functional 
+### Functional 
  1. A user should be able to search for all books that are being sold
  2. The system shall display all available books that are in inventory
  
@@ -107,20 +169,20 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
  -e.g All users will access the system via user & passwords
 
 
-## Non-Functional
-### Product Requirements
+### Non-Functional
+#### Product Requirements
  1. Senstive information will be encrypted vs bcrypt
  2. Data being requested from the server will only contain data pertained to the request, nothing more.
 
-### Organizational Requirements
+#### Organizational Requirements
  1. Users of the Racoon Bazaar will be authenticated via bcrypt
 
 
- ### External Requirements
+ #### External Requirements
   1. Little sensitive data will be stored on the database or server
     - Any senstive data will be obfuscated
 
 
 
-### Reference
+#### Reference
 - [Design Document Template](https://bit.ai/templates/software-design-document-template#:~:text=System%20Overview%3A%20Provide%20a%20general,functionality%20of%20the%20software%20system.&text=Assumptions%20and%20Dependencies%3A%20Describe%20any,the%20design%20of%20the%20software.)
