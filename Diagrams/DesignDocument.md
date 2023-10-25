@@ -52,6 +52,7 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 <details>
 
 <summary>Scenario: Putting a book up for sale</summary>
+
 ##### Initial Assumption
 - A user has a book or a collection of books that they want to put up for sale to the Bazaar service. These books are identified by book title and author. They have been successfully authenticated on to Racoon Bazaar. 
 
