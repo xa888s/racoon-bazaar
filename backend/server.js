@@ -134,11 +134,12 @@ app.post('/register', async(req,res)=>{
 //login
 app.post('/login', async(req,res)=>{
     try{
+        console.log("TEST");
         //Queries the database by looking for the email, function returns 
-        const userAuthenticate = await getHashedPassword(req.body.email);
+        //const userAuthenticate = await getHashedPassword(req.body.email);
         //using bcrypt, compaires the plaintext password to the hashed password from the database
         
-        const isMatch = await bcrypt.compare(req.body.password, userAuthenticate);
+        //const isMatch = await bcrypt.compare(req.body.password, userAuthenticate);
         /*
         //if the match is true, grant session token (passportjs)
         if(isMatch){
