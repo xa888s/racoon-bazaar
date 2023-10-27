@@ -4,7 +4,7 @@
 The purpose for Racoon Bazaar is to have a platform for students to buy and sell their textbooks they no longer need
 
 ## Design Considerations
-The system is designed to be used by SFU students, who we can assume are more well-versed with dealing with online platforms such as this.
+The system is designed to be used by university students, who we can assume are more well-versed with dealing with online platforms such as this when compared the greater population.
 
 
 ## Archectural Strategies
@@ -22,12 +22,8 @@ The system will be build using Node.js with various modules such as:
 
 - [Passport](https://www.npmjs.com/package/passport): for persistent login session
 
-## Methods and Instrumentation
-
 ## User Stories
-<details>
-
-
+<details><summary> Stories </summary>
 
 
 I as a student, want to have a service where I can buy and sell books, so I don't have to advertise it myself
@@ -78,7 +74,7 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 - The user chooses to search for a book based of the major. They are prompted to look for a book via major. The input is then sent off to the server.
 
 ##### What Can Go Wrong
-- The user inputs a major that isn't in the database. It would return.
+- 
 
 - 
 
@@ -92,14 +88,14 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 <summary>Scenario: Searching for a book </summary>
 
 ##### Initial Assumption
-- A user is looking for a book related to their major. Each book can be related to a major. They are already authenticated. 
+-  
 
 
 ##### Normal
-- The user chooses to search for a book based of the major. They are prompted to look for a book via major. The input is then sent off to the server.
+-
 
 ##### What Can Go Wrong
-- The user inputs a major that isn't in the database. It would return.
+- 
 
 - 
 
@@ -150,10 +146,13 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 
 
 
-## Detailied System Design
+## Detailed System Design
 
 **** DIAGRAMS WILL GO HERE ******
-
+<details> 
+<summary>Class Diagram</summary>
+[Iteration 2](Iteration2ClassDiagramPlaceholder.jpg "Class Diagram")
+</details>
 
 
 
