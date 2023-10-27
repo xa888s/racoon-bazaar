@@ -1,8 +1,5 @@
 # Racoon Bazaar
 
-## Introduction
-
-
 ## System Overview
 The purpose for Racoon Bazaar is to have a platform for students to buy and sell their textbooks they no longer need
 
@@ -12,18 +9,18 @@ The system is designed to be used by SFU students, who we can assume are more we
 
 ## Archectural Strategies
 The system will be build using Node.js with various modules such as:
-    
-    - [Body-parser](https://www.npmjs.com/package/body-parser): for processing HTTP request data
-    
-    - [Dotenv](https://www.npmjs.com/package/dotenv): for creation and use of environment variables for things such as database info, api keys, etc
-    
-    - [Express](https://www.npmjs.com/package/express): for server handling
-    
-    - [mysql2](https://www.npmjs.com/package/mysql2): for database handling
 
-    - [bcrypt](https://www.npmjs.com/package/bcrypt): for hashing passwords and all that jazz
+- [Body-parser](https://www.npmjs.com/package/body-parser): for processing HTTP request data
+    
+- [Dotenv](https://www.npmjs.com/package/dotenv): for creation and use of environment variables for things such as database info, api keys, etc
+    
+- [Express](https://www.npmjs.com/package/express): for server handling
+    
+- [mysql2](https://www.npmjs.com/package/mysql2): for database handling
 
-    - [Passport](https://www.npmjs.com/package/passport): for persistent login session
+- [bcrypt](https://www.npmjs.com/package/bcrypt): for hashing passwords and all that jazz
+
+- [Passport](https://www.npmjs.com/package/passport): for persistent login session
 
 ## Methods and Instrumentation
 
