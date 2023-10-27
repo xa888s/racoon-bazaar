@@ -11,16 +11,12 @@ The system is designed to be used by university students, who we can assume are 
 The system will be build using Node.js with various modules such as:
 
 - [Body-parser](https://www.npmjs.com/package/body-parser): for processing HTTP request data
-    
 - [Dotenv](https://www.npmjs.com/package/dotenv): for creation and use of environment variables for things such as database info, api keys, etc
-    
 - [Express](https://www.npmjs.com/package/express): for server handling
-    
+- [Express-Session] (https://www.npmjs.com/package/express-session): for creating a session storing account information    
 - [mysql2](https://www.npmjs.com/package/mysql2): for database handling
-
 - [bcrypt](https://www.npmjs.com/package/bcrypt): for hashing passwords and all that jazz
 
-- [Passport](https://www.npmjs.com/package/passport): for persistent login session
 
 ## User Stories
 <details><summary> Stories </summary>
@@ -85,7 +81,7 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 
 
 <details>
-<summary>Scenario: Searching for a book </summary>
+<summary>Scenario: Buying a book </summary>
 
 ##### Initial Assumption
 -  
@@ -148,9 +144,21 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 
 ## Detailed System Design
 
+### Class Diagrams
+Iteration 1
 ![Iteration 1 Class Diagram](<Diagrams/Bazaar Iteration 1.png>)
 
+
+Iteration 2
 ![Iteration 2 Class Diagram](</Diagrams/Iteration2ClassDiagramPlaceholder.jpg>)
+
+
+### Sequence Diagrams
+Iteration 1
+![Iteration 1 Sequence Diagram](</Diagrams/RacoonBazaarIteration1Sequence.png>)
+
+Iteration 2
+![Iteration 2 Sequence Diagram](<SequenceDiagramIteration2.png>)
 
 
 
