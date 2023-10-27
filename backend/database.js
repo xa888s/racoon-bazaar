@@ -94,7 +94,8 @@ export async function loginUser(email, password){
 }
 
 export async function getHashedPassword(email){
+    
     const [result] = await pool.query("SELECT user_email, user_password from Accounts WHERE user_email='" + email +"'");
-    //console.log(result[0].user_password);
-    return result[0];
+    
+    return result[0].user_password;
 }

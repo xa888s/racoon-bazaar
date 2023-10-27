@@ -22,19 +22,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 import session from "express-session";
-//import {passport} from './passport-config.js';
 
 
 
-//tell express to use sessions
+
 app.use(session({
-    secret: "A secret for this thing",
-    resave: true,
-    saveUninitialized: true
+    secret:"This is for a secret",
+    resave:false,
+    saveUninitialized:true
 }))
-
-//app.use(passport.initialize());
-//app.use(passport.session);
 
 
 
@@ -43,8 +39,31 @@ app.use(session({
 //SETTERs
 //set homepage on intial load of web page
 app.get('/', async (req,res)=>{
-   res.sendFile(path.join(__dirname,'/views/bazaar.html'));
+   res.sendFile(path.join(__dirname,'/views/login.html'));
 });
+
+app.post('/login', async (req,res)=>{
+    
+    console.log(req.body.email);
+    const userPass = await getHashedPassword(req.body.email);
+
+    const isMatch = await bcrypt.compare(req.body.password, userPass);
+    console.log(isMatch);
+    /*
+    if(isMatch){
+        console.log("user verified");
+    }else{
+        console.log("User not authorized");
+    }
+    */
+})
+
+app.get('/bazaar', async(req,res)=>{
+    if(!req.session.user){
+        return res.status(401).send();
+    }
+    return res.status(200).send("Welcome to the dashboard");
+})
 
 
 
@@ -60,9 +79,7 @@ app.get('/registerView', async(req,res)=>{
     res.sendFile(path.join(__dirname,'/views/register.html'));
 })
 
-app.get('/loginView', async(req,res)=>{
-    res.sendFile(path.join(__dirname, '/views/login.html'));
-})
+
 
 //INSERTERS
 app.post('/insertOrder', async(req,res)=>
@@ -130,7 +147,7 @@ app.post('/register', async(req,res)=>{
         console.log("Error", e.message);
     }   
 })
-
+/*
 //login
 app.post('/login', async(req,res)=>{
     try{
@@ -150,7 +167,7 @@ app.post('/login', async(req,res)=>{
             
         }
         console.log("AUTHENTICATED???? " + isMatch);
-        */
+        
 
         //res.send(userAuthenticate);
 
@@ -161,7 +178,7 @@ app.post('/login', async(req,res)=>{
         console.log("Error", e.message);
     }    
 })
-
+*/
 console.log("Server is running on port 3001");
 
 app.listen(3001);
