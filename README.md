@@ -146,6 +146,7 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 
 ### Class Diagrams
 Iteration 1
+
 ![Iteration 1 Class Diagram](<Diagrams/Bazaar Iteration 1.png>)
 
 
@@ -158,7 +159,7 @@ Iteration 1
 ![Iteration 1 Sequence Diagram](</Diagrams/RacoonBazaarIteration1Sequence.png>)
 
 Iteration 2
-![Iteration 2 Sequence Diagram](<SequenceDiagramIteration2.png>)
+![Iteration 2 Sequence Diagram](</Diagrams/SequenceDiagramIteration2.png>)
 
 
 
