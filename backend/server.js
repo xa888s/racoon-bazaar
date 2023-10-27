@@ -44,18 +44,25 @@ app.get('/', async (req,res)=>{
 
 app.post('/login', async (req,res)=>{
     
-    console.log(req.body.email);
-    const userPass = await getHashedPassword(req.body.email);
-
-    const isMatch = await bcrypt.compare(req.body.password, userPass);
-    console.log(isMatch);
     /*
-    if(isMatch){
-        console.log("user verified");
-    }else{
-        console.log("User not authorized");
-    }
+    TODO: check if the email is even in the database to begin with
     */
+    const userPass = await getHashedPassword(req.body.email);
+    //check if the password inputed matches with the one on the db
+    const isMatch = await bcrypt.compare(req.body.password, userPass);
+    //if the password matches, then set the session user to the email for later storage
+    //then redirect to bazaar page
+    if(isMatch){
+        req.session.user = req.body.email;
+        res.sendFile(path.join(__dirname,'views/bazaar.html'));
+    }
+    //if the password doesnt match, then notify that either password or email doesnt match
+    else{
+        console.log("Your password or email are invalid");
+    }
+
+    
+
 })
 
 app.get('/bazaar', async(req,res)=>{
@@ -136,9 +143,9 @@ app.post('/searchByPriceRange', async(req,res)=>{
 //create account
 app.post('/register', async(req,res)=>{
     try{
+        //TODO: Make sure the email being used isn't already in the database
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         const userRegister = await createUser(req.body.first_name,req.body.last_name,req.body.major,req.body.phone_number,hashedPassword,req.body.email);
-        console.log("Account data sent");
         res.send(userRegister);
     }catch(e){
         console.log("Register went wrong");
@@ -147,38 +154,6 @@ app.post('/register', async(req,res)=>{
         console.log("Error", e.message);
     }   
 })
-/*
-//login
-app.post('/login', async(req,res)=>{
-    try{
-        console.log("TEST");
-        //Queries the database by looking for the email, function returns 
-        //const userAuthenticate = await getHashedPassword(req.body.email);
-        //using bcrypt, compaires the plaintext password to the hashed password from the database
-        
-        //const isMatch = await bcrypt.compare(req.body.password, userAuthenticate);
-        /*
-        //if the match is true, grant session token (passportjs)
-        if(isMatch){
-
-        }
-        //if the match is false, password entered must be wrong
-        else{
-            
-        }
-        console.log("AUTHENTICATED???? " + isMatch);
-        
-
-        //res.send(userAuthenticate);
-
-    }catch(e){
-        console.log("Login went wrong");
-        console.log("Error", e.stack);
-        console.log("Error", e.name);
-        console.log("Error", e.message);
-    }    
-})
-*/
 console.log("Server is running on port 3001");
 
 app.listen(3001);
