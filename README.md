@@ -13,7 +13,7 @@ The system will be build using Node.js with various modules such as:
 - [Body-parser](https://www.npmjs.com/package/body-parser): for processing HTTP request data
 - [Dotenv](https://www.npmjs.com/package/dotenv): for creation and use of environment variables for things such as database info, api keys, etc
 - [Express](https://www.npmjs.com/package/express): for server handling
-- [Express-Session] (https://www.npmjs.com/package/express-session): for creating a session storing account information    
+- [Express-session](https://www.npmjs.com/package/express-session): for creating a session storing account information    
 - [mysql2](https://www.npmjs.com/package/mysql2): for database handling
 - [bcrypt](https://www.npmjs.com/package/bcrypt): for hashing passwords and all that jazz
 
