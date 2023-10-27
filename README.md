@@ -148,9 +148,9 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 
 ## Detailed System Design
 
-**** DIAGRAMS WILL GO HERE ******
+![Iteration 1 Class Diagram](<Diagrams/Bazaar Iteration 1.png>)
 
-![Iteration 2 Class Diagram](<Iteration2ClassDiagramPlaceholder.jpg>)
+![Iteration 2 Class Diagram](</Diagrams/Iteration2ClassDiagramPlaceholder.jpg>)
 
 
 
