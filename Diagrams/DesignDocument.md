@@ -151,7 +151,7 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 **** DIAGRAMS WILL GO HERE ******
 <details> 
 <summary>Class Diagram</summary>
-[Iteration 2](Iteration2ClassDiagramPlaceholder.jpg "Class Diagram")
+[!Iteration 2](Iteration2ClassDiagramPlaceholder.jpg "Class Diagram")
 </details>
 
 
