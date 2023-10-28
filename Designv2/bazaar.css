@@ -6,6 +6,8 @@
 .search {
 
     background-color: #1b202e;
+    padding-right:15px;
+    padding-left: 15px;
 
     /* background-color: rgb(21, 27, 41); */
     display: flex;
@@ -40,6 +42,7 @@ title:hover{
     background-color:dimgray;
     color: red;
 }
+
 .Filterout-button {
     border: 1px solid #ffa260;
     border-radius: 10px;
@@ -51,6 +54,7 @@ title:hover{
     margin: 25px 0;
     transition: background-color 200ms ease-in-out;
     transition: color 400ms ease-in-out;
+    font-weight:900;
 }
 
 #Register{

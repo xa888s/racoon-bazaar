@@ -48,6 +48,8 @@
                 <a href="bazaar.html" class="nav-item nav-link"><span id="title"><b>Marketplace</b></span></a>
                 <a href="about.html" class="nav-item nav-link"><span id="title"><b>About</b></span></a>
                 <a href="contact.html" class="nav-item nav-link"><span id="title"><b>Contact</b></span></a>
+                <a href="Login.html" class="nav-item nav-link"><span id= "title"><b>Log In</b></span></a>
+                <a href="Register.html" class="nav-item nav-link"><span id= "title"><b>Sign up</b></span></a>
             </div>
             <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -56,6 +58,9 @@
         </div>
     </nav>
 
+    <form action="/retrieveSales" method="get">
+        <input type="submit" value="Display All Sales">
+    </form>
     
     <div class="search">
         <div class="panel ">
@@ -71,21 +76,28 @@
                         d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z" />
                 </svg>
             </div>
-            <div id="Bookname" class="input-group mb-4 pt-3 ">
+
+            <form action="/searchSalesByName" method="post">
+                <div id="Bookname" class="input-group mb-4 pt-3 ">
                 <div id="bookname" class="input-group-prepend">
                     <span class="input-group-text "><span id="title"><b>BOOK NAME</b></span></span>
                 </div>
                 <input type="text" placeholder="Name Of The Book" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default">
+                    aria-describedby="inputGroup-sizing-default" name="book_name">
+                    <input type="submit" value="Search">
             </div>
+            </form>
 
-            <div class="input-group mb-4 ">
+            <form action="/searchSalesbyCourse" method="post">
+                <div class="input-group mb-4 ">
                 <div id="Course Code" class="input-group-prepend ">
                     <span class="input-group-text"><span id="title"><B>COURSE CODE</B></span></span>
                 </div>
                 <input type="text" placeholder="Course number" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default">
+                    <input type="submit" value="Search">
             </div>
+            </form>
 
             <div class="input-group mb-3">
                 <div id="Condition" class="input-group-prepend ">
@@ -94,10 +106,11 @@
                 </div>
                 <select class=" custom-select" id="inputGroupSelect01">
                     <option selected>Choose...</option>
-                    <option value="1">New</option>
-                    <option value="2">Like New</option>
-                    <option value="3">Used</option>
-                    <option value="3">Fair</option>
+                    <option value = "Any"> Any</option>
+                    <option value="New">New</option>
+                    <option value="Like New">Like New</option>
+                    <option value="Used">Used</option>
+                    <option value="Fair">Fair</option>
                 </select>
             </div>
 
@@ -106,6 +119,8 @@
                     <span class="title input-group-text"><b>PRICE RANGE:</b></span>
                 </div>
             </div>
+
+            <form action="/searchByPriceRange" method="post">
             <div class="input-group mb-2 mx-0 px-0">
                 <div id="Min" class="input-group-prepend">
                     <span class="title input-group-text"><b>Min $</b></span>
@@ -124,7 +139,9 @@
                     <span class="input-group-text"><span id="title"><b>.0</b></span></span>
                 </div>
             </div>
-            <a href="#/" class="Filterout-button"><b>FILTER AND SEARCH!</b></a>
+            <input type="submit" class="Filterout-button" value="Filter and Search!">
+            
+            </form>
         </div>
     </div>
 
