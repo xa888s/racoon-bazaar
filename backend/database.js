@@ -27,8 +27,8 @@ export async function getSells(){
     Params: The Book Name (varchar255), Author Name (varchar255), Edition (int11), Course Tag (varchar255)
     Return: Number of how many fields have been inserted (??? Still Not Sure, researching)
 */
-export async function insertSale(book_name, course_code, condition, price ){
-    const [result] = await pool.query("INSERT INTO Inventory(book_name,course_code, book_condition, book_price) VALUES (?,?,?,?)", [book_name, course_code, condition, price])
+export async function insertSale(book_name, course_code, condition, price, user_id ){
+    const [result] = await pool.query("INSERT INTO Inventory(book_name,course_code, book_condition, book_price,user_id) VALUES (?,?,?,?,?)", [book_name, course_code, condition, price, user_id])
     return result.insertId;
 
 }
@@ -88,14 +88,17 @@ export async function createUser(firstName, lastName, major, phoneNumber, passwo
     return result;   
 }
 
-export async function loginUser(email, password){
-    const [result] = await pool.query("SELECT user_email from Accounts WHERE user_email='" + email +"' AND " + "user_password='" + password +"'" );
-    return result;
+export async function getHashedPassword(email){
+    const [result] = await pool.query("SELECT user_email, user_password from Accounts WHERE user_email='" + email +"'");
+    return result[0].user_password;
 }
 
-export async function getHashedPassword(email){
-    
-    const [result] = await pool.query("SELECT user_email, user_password from Accounts WHERE user_email='" + email +"'");
-    
-    return result[0].user_password;
+export async function getUserID(email){
+    const [result] = await pool.query("SELECT user_id from Accounts WHERE user_email='" + email +"'");
+    return result[0].user_id;
+}
+
+export async function getUserInventory(user_id){
+    const [result] = await pool.query("SELECT Inventory.book_name, Accounts.user_firstName, Accounts.user_lastName, Accounts.user_email FROM Inventory, Accounts WHERE Accounts.user_id='5'");
+    return result;
 }

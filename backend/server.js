@@ -10,7 +10,7 @@ import bodyParser from "body-parser";
 import bcrypt from 'bcrypt';
 //functions from database.js
 import {getSells, insertSale, getBookNameSales,getCourseCodeSales, getConditionSales,
-getPriceRangeSales, createUser, loginUser, getHashedPassword} from './database.js'
+getPriceRangeSales, createUser, getHashedPassword, getUserID, getUserInventory} from './database.js'
 //to fix __dirname errors
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,11 +25,12 @@ import session from "express-session";
 
 
 
-
+const oneDay = 1000 * 60 *60 *24;
 app.use(session({
     secret:"This is for a secret",
     resave:false,
-    saveUninitialized:true
+    saveUninitialized:true,
+    cookie:{maxAge: oneDay}
 }))
 
 
@@ -48,12 +49,17 @@ app.post('/login', async (req,res)=>{
     TODO: check if the email is even in the database to begin with
     */
     const userPass = await getHashedPassword(req.body.email);
+    
+    
+    
     //check if the password inputed matches with the one on the db
     const isMatch = await bcrypt.compare(req.body.password, userPass);
     //if the password matches, then set the session user to the email for later storage
     //then redirect to bazaar page
     if(isMatch){
+        const userID = await getUserID(req.body.email);
         req.session.user = req.body.email;
+        req.session.user_id = userID;
         res.sendFile(path.join(__dirname,'views/bazaar.html'));
     }
     //if the password doesnt match, then notify that either password or email doesnt match
@@ -95,14 +101,14 @@ app.post('/insertOrder', async(req,res)=>
     const courseCode = req.body.course_code;
     const bookCond = req.body.condition;
     const bookPrice = req.body.price;
-
+    const userID = req.session.user_id;
+    
    //iteration 2 MUST needs: sanitize input to prevent malicious SQL quackery
-    const order = await insertSale(bookName, courseCode, bookCond, bookPrice);
+    const order = await insertSale(bookName, courseCode, bookCond, bookPrice,userID);
 
     //show the database with all the sales
-    const sells = await getSells();
+    const sells = await getUserInventory(req.session.user_id);
     res.send(sells);
-
     
 })
 
@@ -137,6 +143,11 @@ app.post('/searchSalesByCondition', async(req,res)=>{
 app.post('/searchByPriceRange', async(req,res)=>{
     const bookSearch = await getPriceRangeSales(req.body.minPrice, req.body.maxPrice);
     res.send(bookSearch);
+})
+
+app.post('/getUserInventory', async(req,res)=>{
+    const userInventory = await getUserInventory(req.session.user_id);
+    console.log(userInventory);
 })
 
 
