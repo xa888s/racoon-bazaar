@@ -24,8 +24,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 import session from "express-session";
 
 
-
+//Create a session object that lasts for one day
 const oneDay = 1000 * 60 *60 *24;
+/*
+documentation on session object: https://www.npmjs.com/package/express-session
+*/
 app.use(session({
     secret:"This is for a secret",
     resave:false,
@@ -44,11 +47,12 @@ app.get('/', async (req,res)=>{
 });
 
 app.post('/login', async (req,res)=>{
-    
+    console.log(req.body.email);
     /*
     TODO: check if the email is even in the database to begin with
     */
     const userPass = await getHashedPassword(req.body.email);
+    
     
     
     
@@ -71,6 +75,10 @@ app.post('/login', async (req,res)=>{
 
 })
 
+app.get('/register', async(req,res)=>{
+    res.sendFile(path.join(__dirname,'/views/register.html'))
+})
+
 app.get('/bazaar', async(req,res)=>{
     if(!req.session.user){
         return res.status(401).send();
@@ -88,8 +96,8 @@ app.get('/contact', async(req,res)=>{
    res.sendFile(path.join(__dirname,'/views/contact.html'));
 });
 
-app.get('/registerView', async(req,res)=>{
-    res.sendFile(path.join(__dirname,'/views/register.html'));
+app.get('/register', async(req,res)=>{
+    res.sendFile(path.join(__dirname,'/views/Register.html'));
 })
 
 
@@ -152,12 +160,19 @@ app.post('/getUserInventory', async(req,res)=>{
 
 
 //create account
-app.post('/register', async(req,res)=>{
+app.post('/registerAccount', async(req,res)=>{
     try{
         //TODO: Make sure the email being used isn't already in the database
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        const userRegister = await createUser(req.body.first_name,req.body.last_name,req.body.major,req.body.phone_number,hashedPassword,req.body.email);
-        res.send(userRegister);
+
+        
+        const userRegister = await createUser(req.body.user_firstName,
+            req.body.user_lastName,
+            req.body.user_major,
+            req.body.user_phone_number,
+            hashedPassword,
+            req.body.email);
+            res.sendFile(path.join(__dirname,'/views/login.html'));
     }catch(e){
         console.log("Register went wrong");
         console.log("Error", e.stack);
