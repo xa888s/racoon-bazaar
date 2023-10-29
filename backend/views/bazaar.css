@@ -6,6 +6,8 @@
 .search {
 
     background-color: #1b202e;
+    padding-right:15px;
+    padding-left: 15px;
 
     /* background-color: rgb(21, 27, 41); */
     display: flex;
@@ -40,6 +42,11 @@ title:hover{
     background-color:dimgray;
     color: red;
 }
+
+#browse{
+    margin-left: 20px;
+}
+
 .Filterout-button {
     border: 1px solid #ffa260;
     border-radius: 10px;
@@ -51,12 +58,100 @@ title:hover{
     margin: 25px 0;
     transition: background-color 200ms ease-in-out;
     transition: color 400ms ease-in-out;
+    font-weight:900;
 }
 
+#Register{
+    width: 300px;
+    height: 530px;
+    padding-top: 10px;
+    background-color: #1b202e;
+    padding-left: 35px;
+    justify-content: center;
+    display: flex;
+}
+
+#login{
+    width: 300px;
+    height: 300px;
+    padding-top: 10px;
+    background-color: #1b202e;
+    padding-left: 35px;
+    justify-content: center;
+    display: flex;
+}
+
+.sell{
+    width: 370px;
+    height: 385px;
+    padding-top: 10px;
+    background-color: #1b202e;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#heading{
+    margin-top: -30px;
+    margin-left: 10px;
+}
+
+#anchor{
+    text-decoration: underline;
+}
+
+#button
+{
+    margin-top: 5px;;
+    background-color: #f0f0f0;
+    margin: 3px;
+    border-radius: 10%;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+}
+#button:hover
+{
+    background-color: #d4cfcf; 
+}
+
+#User_firstName{
+    width:230px;
+}
+#container{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+}
+#signup{
+    margin-top: 10px;
+    font-weight:500;
+    font-size: xx-large;
+    margin-bottom: -10px;
+    display:flex;
+    justify-content: center;
+}
+
+#selling{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#already{
+    display: flex;
+    justify-content: center;
+}
+#signin{
+    margin-top: 10px;
+    font-weight:500;
+    font-size: xx-large;
+    margin-bottom: -10px;
+    display:flex;
+    justify-content: center;
+}
 
 .Filterout-button:hover{
     background-color:#151b29;
     text-decoration:wavy;
     color: #ffa260;
-
 }

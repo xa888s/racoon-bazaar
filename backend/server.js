@@ -147,7 +147,7 @@ app.post('/searchByPriceRange', async(req,res)=>{
 
 app.post('/getUserInventory', async(req,res)=>{
     const userInventory = await getUserInventory(req.session.user_id);
-    console.log(userInventory);
+    res.send(userInventory);
 })
 
 
