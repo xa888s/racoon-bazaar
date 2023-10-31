@@ -1,4 +1,28 @@
 <details>
+<summary>Scenario: Searching for a book </summary>
+
+##### Initial Assumption
+- A user is looking for a book related to their major. Each book can be related to a major. They are already authenticated. 
+
+
+##### Normal
+- The user chooses to search for a book based of the major. They are prompted to look for a book via major. The input is then sent off to the server.
+
+##### What Can Go Wrong
+- 
+
+- 
+
+##### System State on Completion
+- 
+</details>
+
+
+
+
+
+
+<details>
 
 <summary>Scenario: Putting a book up for sale</summary>
 
@@ -17,25 +41,6 @@
 
 ##### System State on Completion
 - User is logged in. The order will be sent to the database and the server will display the updated table.
-</details>
-
-<details>
-<summary>Scenario: Searching for a book </summary>
-
-##### Initial Assumption
-- A user is looking for a book related to their major. Each book can be related to a major. They are already authenticated. 
-
-
-##### Normal
-- The user chooses to search for a book based of the major. They are prompted to look for a book via major. The input is then sent off to the server.
-
-##### What Can Go Wrong
-- 
-
-- 
-
-##### System State on Completion
-- 
 </details>
 
 
