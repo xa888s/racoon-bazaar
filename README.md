@@ -18,7 +18,7 @@ The system will be build using Node.js with various modules such as:
 - [bcrypt](https://www.npmjs.com/package/bcrypt): for hashing passwords and all that jazz
 
 
-[Requirements](backend/Diagrams/docs/Requirements.md)
+[Requirements](https://github.com/xa888s/racoon-bazaar/blob/Iteration2/Diagrams/docs/Requirements.md)
 
 
 ## Analysis
