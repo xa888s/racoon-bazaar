@@ -115,7 +115,7 @@ app.post('/insertOrder', async(req,res)=>
     const order = await insertSale(bookName, courseCode, bookCond, bookPrice,userID, author);
 
     //show the database with all the sales
-    const sells = await getUserInventory(req.session.user_id);
+    const sells = await getSells();
     res.send(sells);
     
 })

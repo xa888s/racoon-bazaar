@@ -27,8 +27,8 @@ export async function getSells(){
     Params: The Book Name (varchar255), Author Name (varchar255), Edition (int11), Course Tag (varchar255)
     Return: Number of how many fields have been inserted (??? Still Not Sure, researching)
 */
-export async function insertSale(book_name, course_code, condition, price, user_id ){
-    const [result] = await pool.query("INSERT INTO Inventory(book_name,course_code, book_condition, book_price,user_id) VALUES (?,?,?,?,?)", [book_name, course_code, condition, price, user_id])
+export async function insertSale(book_name, course_code, condition, price, user_id,author ){
+    const [result] = await pool.query("INSERT INTO Inventory(book_name,course_code, book_condition, book_price,user_id,author) VALUES (?,?,?,?,?,?)", [book_name, course_code, condition, price, user_id,author])
     return result.insertId;
 
 }
