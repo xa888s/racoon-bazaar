@@ -18,9 +18,8 @@ The system will be build using Node.js with various modules such as:
 - [bcrypt](https://www.npmjs.com/package/bcrypt): for hashing passwords and all that jazz
 
 
-## User Stories
+## User Stories & Use Cases
 <details><summary> Stories </summary>
-
 
 I as a student, want to have a service where I can buy and sell books, so I don't have to advertise it myself
 
@@ -32,9 +31,15 @@ I as a student, want to see how much textbooks cost for certain courses, so I ca
 
 I as a student, want to put a buy order for a book that is sold out, so I can be notified when the book I want is for sale
 
-
 </details>
 
+<details><summary> Use Cases </summary>>
+
+##### Student Selling a book
+A student can put their books for sale on the app. They navigate to the Sell Your Books tab. They are prompted to enter 
+the name of the book, the author of the book, the course code that the book is assigned to, the current condition of the book and the price that the person wants to sell it for. Once the input fields have been verified to be filled, the database will hold that users book and then send it to the server so it can be shown to anyone who is browsing for books. 
+
+</details>
 
 
 ## Scenarios
