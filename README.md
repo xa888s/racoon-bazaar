@@ -18,7 +18,11 @@ The system will be build using Node.js with various modules such as:
 - [bcrypt](https://www.npmjs.com/package/bcrypt): for hashing passwords and all that jazz
 
 
-## User Stories & Use Cases
+[Requirements](backend/docs/Requirements.md)
+
+
+## Analysis
+#### User Stories & Use Cases
 <details><summary> Stories </summary>
 
 I as a student, want to have a service where I can buy and sell books, so I don't have to advertise it myself
@@ -33,8 +37,7 @@ I as a student, want to put a buy order for a book that is sold out, so I can be
 
 </details>
 
-<details><summary> Use Cases </summary>>
-
+<details><summary> Use Cases </summary>
 ##### Student Selling a book
 A student can put their books for sale on the app. They navigate to the Sell Your Books tab. They are prompted to enter 
 the name of the book, the author of the book, the course code that the book is assigned to, the current condition of the book and the price that the person wants to sell it for. Once the input fields have been verified to be filled, the database will hold that users book and then send it to the server so it can be shown to anyone who is browsing for books. 
@@ -42,7 +45,7 @@ the name of the book, the author of the book, the course code that the book is a
 </details>
 
 
-## Scenarios
+### Scenarios
 <details>
 
 <summary>Scenario: Putting a book up for sale</summary>
@@ -147,50 +150,31 @@ the name of the book, the author of the book, the course code that the book is a
 
 
 
-## Detailed System Design
+## Design
 
-### Class Diagrams
-Iteration 1
+#### Class Diagrams
+<details><summary> Iteration 1 </summary>
 
 ![Iteration 1 Class Diagram](<Diagrams/Bazaar Iteration 1.png>)
 
+</details>
 
-Iteration 2
+
+
 ![Iteration 2 Class Diagram](</Diagrams/Iteration2ClassDiagramPlaceholder.jpg>)
 
 
-### Sequence Diagrams
-Iteration 1
+#### Sequence Diagrams
+
+<details><summary>Iteration 1</summary>
 ![Iteration 1 Sequence Diagram](</Diagrams/RacoonBazaarIteration1Sequence.png>)
+</details>
 
 Iteration 2
 ![Iteration 2 Sequence Diagram](</Diagrams/SequenceDiagramIteration2.png>)
 
 
 
-
-## Requirements
-
-### Functional 
- 1. A user should be able to search for all books that are being sold
- 2. The system shall display all available books that are in inventory
- 
- 3. Each student will be identified by an account they created, uniquely identified by their email
- -e.g All users will access the system via user & passwords
-
-
-### Non-Functional
-#### Product Requirements
- 1. Senstive information will be encrypted vs bcrypt
- 2. Data being requested from the server will only contain data pertained to the request, nothing more.
-
-#### Organizational Requirements
- 1. Users of the Racoon Bazaar will be authenticated via bcrypt
-
-
- #### External Requirements
-  1. Little sensitive data will be stored on the database or server
-    - Any senstive data will be obfuscated
 
 
 
