@@ -23,11 +23,11 @@ The system will be build using Node.js with various modules such as:
 
 ## Analysis
 
-#### User Stories 
+#### [User Stories](https://github.com/xa888s/racoon-bazaar/blob/Iteration2/Diagrams/docs/UserStories.md) 
 
-#### Use Cases
+#### [Use Cases](https://github.com/xa888s/racoon-bazaar/blob/Iteration2/Diagrams/docs/UseCase.md)
 
-### Scenarios
+#### [Scenarios] (https://github.com/xa888s/racoon-bazaar/blob/Iteration2/Diagrams/docs/UserScenarios.md)
 
 
 
@@ -35,17 +35,10 @@ The system will be build using Node.js with various modules such as:
 
 ## Detailed Design
 
-#### Class Diagrams
+#### [Class Diagrams](https://github.com/xa888s/racoon-bazaar/blob/Iteration2/Diagrams/docs/ClassDiagram.md)
 
 
-#### Sequence Diagrams
-
-<details><summary>Iteration 1</summary>
-![Iteration 1 Sequence Diagram](</Diagrams/RacoonBazaarIteration1Sequence.png>)
-</details>
-
-Iteration 2
-![Iteration 2 Sequence Diagram](</Diagrams/SequenceDiagramIteration2.png>)
+#### [Sequence Diagrams]()
 
 
 
@@ -53,4 +46,4 @@ Iteration 2
 
 
 #### Reference
-- [Design Document Template](https://bit.ai/templates/software-design-document-template#:~:text=System%20Overview%3A%20Provide%20a%20general,functionality%20of%20the%20software%20system.&text=Assumptions%20and%20Dependencies%3A%20Describe%20any,the%20design%20of%20the%20software.)
+- [Design Document Template/Reference](https://web.archive.org/web/20180822010044/https://www.math-cs.gordon.edu/courses/cs211/ATMExample/)
