@@ -110,6 +110,7 @@ app.post('/insertOrder', async(req,res)=>
     const bookCond = req.body.condition;
     const bookPrice = req.body.price;
     const userID = req.session.user_id;
+    console.log(userID);
     
    //iteration 2 MUST needs: sanitize input to prevent malicious SQL quackery
     const order = await insertSale(bookName, courseCode, bookCond, bookPrice,userID);

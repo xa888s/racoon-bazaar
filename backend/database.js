@@ -99,6 +99,6 @@ export async function getUserID(email){
 }
 
 export async function getUserInventory(user_id){
-    const [result] = await pool.query("SELECT Inventory.book_name, Accounts.user_firstName, Accounts.user_lastName, Accounts.user_email FROM Inventory, Accounts WHERE Accounts.user_id='5'");
+    const [result] = await pool.query("SELECT Inventory.book_name, Accounts.user_firstName, Accounts.user_lastName, Accounts.user_email FROM Inventory, Accounts WHERE Accounts.user_id='"+user_id+"'");
     return result;
 }
