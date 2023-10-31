@@ -27,7 +27,7 @@ The system will be build using Node.js with various modules such as:
 
 #### [Use Cases](https://github.com/xa888s/racoon-bazaar/blob/Iteration2/Diagrams/docs/UseCase.md)
 
-#### [Scenarios] (https://github.com/xa888s/racoon-bazaar/blob/Iteration2/Diagrams/docs/UserScenarios.md)
+#### [Scenarios](https://github.com/xa888s/racoon-bazaar/blob/Iteration2/Diagrams/docs/UserScenarios.md)
 
 
 
