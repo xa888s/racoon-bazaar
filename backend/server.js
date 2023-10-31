@@ -41,21 +41,18 @@ app.use(session({
 
 
 //SETTERs
-//set homepage on intial load of web page
+//set homepage on intial load of web page to login
 app.get('/', async (req,res)=>{
    res.sendFile(path.join(__dirname,'/views/login.html'));
 });
-
+//function that takes user input and sends it off to the database to check if they are valid
+//TODO: Make error page
 app.post('/login', async (req,res)=>{
     console.log(req.body.email);
     /*
     TODO: check if the email is even in the database to begin with
     */
     const userPass = await getHashedPassword(req.body.email);
-    
-    
-    
-    
     //check if the password inputed matches with the one on the db
     const isMatch = await bcrypt.compare(req.body.password, userPass);
     //if the password matches, then set the session user to the email for later storage
@@ -70,9 +67,6 @@ app.post('/login', async (req,res)=>{
     else{
         console.log("Your password or email are invalid");
     }
-
-    
-
 })
 
 app.get('/register', async(req,res)=>{
@@ -183,6 +177,7 @@ app.post('/registerAccount', async(req,res)=>{
 
 //logout to destroy session
 app.get('/logOut', async(req, res)=>{    
+
     req.session.destroy();
     res.sendFile(path.join(__dirname,'/views/login.html'));
 })
