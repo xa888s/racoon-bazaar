@@ -38,7 +38,7 @@ The system will be build using Node.js with various modules such as:
 #### [Class Diagrams](https://github.com/xa888s/racoon-bazaar/blob/Iteration2/Diagrams/docs/ClassDiagram.md)
 
 
-#### [Sequence Diagrams]()
+#### [Sequence Diagrams](https://github.com/xa888s/racoon-bazaar/blob/Iteration2/Diagrams/docs/SequenceDiagrams.md)
 
 
 
