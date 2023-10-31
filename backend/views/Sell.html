@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Montserrat&family=Raleway:wght@800&family=Roboto&family=Rubik:wght@300&display=swap"
         rel="stylesheet">
-    <title>Register | The Racoon Bazaar</title>
+    <title> Sell a Book | The Racoon Bazaar</title>
 </head>
 
 <body>
@@ -57,38 +57,71 @@
         </div>
     </nav>
 
-    <P> <B id="signup"> Register Your Account</B>
-    </P>
+
+    <P><B id="signin"> Sell a Book </B></P>
     <div id="container">
-        <div id="Register">
-        <form action="/registerAccount" method="post">
-            <label for="studentID"> Enter your Student ID* </label>
-             <input type="text", name= "studentID", id="studentID" required> 
-             <p></p>
-             <label for="user_firstName"> Enter your First Name* </label>
-             <input type="text", name= "user_firstName", id="user_firstName" required> 
-             <p></p>
-             <label for="user_lastName"> Enter your Last Name* </label>
-             <input type="text", name= "user_lastName", id="user_lastName" required>
-             <p></p>
-             <label for="user_major"> Enter your major* </label>
-             <input type="text", name= "user_major", id="user_major">
-             <p></p>
-             <label for="user_phone_number"> Enter your Phone Number* </label>
-             <input type="text", name= "user_phone_number", id="user_major" required>
-             <p></p>
-             <label for="email"> Enter your E-Mail address* </label >
-             <input type="email", name= "email", id="email" required>
-             <p></p>
-             <label for="password"> Enter your password* </label>
-             <input type="password", name="password", id="password" required>
-             <p></p>
-                <input type="submit" class="Filterout-button" value="Register!">
-        </form>
-        </div>
-    </div>
-    <p id="already"> Already Have an account? <a id="anchor" href="Login.html"> Sign in</a></p>
+        <div class="sell">
+            
+            <form action="/insertOrder" method="post">
+                <div id="Bookid" class="input-group mb-4 pt-4">
+                    <div id="bookid" class="input-group-prepend">
+                        <span class="input-group-text "><span id="title"><b>BOOK ID*</b></span></span>
+                    </div>
+                    <input type="text" placeholder="Book ID" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" name="book_ID">
+                </div>
+                <div id="Bookname" class="input-group mb-4">
+                    <div id="bookname" class="input-group-prepend">
+                        <span class="input-group-text "><span id="title"><b>BOOK NAME*</b></span></span>
+                    </div>
+                    <input type="text" placeholder="Name Of The Book" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" name="book_name">
+                </div>
+                <div id="Author" class="input-group mb-4 ">
+                    <div id="author" class="input-group-prepend">
+                        <span class="input-group-text "><span id="title"><b>Author Name*</b></span></span>
+                    </div>
+                    <input type="text" placeholder="Author Name" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" name="author_name">
+                </div>
+                <div class="input-group mb-4 ">
+                    <div id="Course Code" class="input-group-prepend ">
+                        <span class="input-group-text"><span id="title"><B>COURSE CODE*</B></span></span>
+                    </div>
+                    <input type="text" placeholder="Course number" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" name="course_code">
+                </div>
     
+                <div class="input-group mb-4 ">
+                    <div id="Condition" class="input-group-prepend ">
+                        <label id="title" class="input-group-text" for="inputGroupSelect01"><span
+                                id="title"><B>CONDITION*</B></span></label>
+                    </div>
+                    <select class=" custom-select" id="inputGroupSelect01" name="condition">
+                        <option selected>Choose...</option>
+                        <option value = "Any"> Any</option>
+                        <option value="New">New</option>
+                        <option value="Like New">Like New</option>
+                        <option value="Used">Used</option>
+                        <option value="Fair">Fair</option>
+                    </select>
+                </div>
+                
+                <div id="price" class="input-group mb-4  ">
+                    <div id="price" class="input-group-prepend">
+                        <span class="input-group-text "><span id="title"><b>PRICE*</b></span></span>
+                    </div>
+                    <input type="text" placeholder="Price of the book" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" name="price">
+                </div>
+    
+            <input type="submit" class="Filterout-button" value="Insert Order!">
+    
+            </form>
+    
+        </div>    
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

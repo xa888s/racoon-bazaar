@@ -43,10 +43,6 @@ title:hover{
     color: red;
 }
 
-#browse{
-    margin-left: 20px;
-}
-
 .Filterout-button {
     border: 1px solid #ffa260;
     border-radius: 10px;
@@ -55,7 +51,7 @@ title:hover{
     background-color: white;
     padding: 15px 35px;
     text-decoration: none;
-    margin: 25px 0;
+    margin: 15px 0;
     transition: background-color 200ms ease-in-out;
     transition: color 400ms ease-in-out;
     font-weight:900;
@@ -63,7 +59,7 @@ title:hover{
 
 #Register{
     width: 300px;
-    height: 530px;
+    height: 650px;
     padding-top: 10px;
     background-color: #1b202e;
     padding-left: 35px;
@@ -73,7 +69,7 @@ title:hover{
 
 #login{
     width: 300px;
-    height: 300px;
+    height: 260px;
     padding-top: 10px;
     background-color: #1b202e;
     padding-left: 35px;
@@ -83,16 +79,24 @@ title:hover{
 
 .sell{
     width: 370px;
-    height: 385px;
+    height: 500px;
     padding-top: 10px;
     background-color: #1b202e;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.buy{
+    width: 450px;
+    height: 780px;
+    padding-top: 10px;
+    background-color: #1b202e;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 #heading{
-    margin-top: -30px;
-    margin-left: 10px;
+    margin-left: 25px;
 }
 
 #anchor{
@@ -123,6 +127,7 @@ title:hover{
     display: flex;
     justify-content: center;
 }
+
 #signup{
     margin-top: 10px;
     font-weight:500;
@@ -130,11 +135,6 @@ title:hover{
     margin-bottom: -10px;
     display:flex;
     justify-content: center;
-}
-
-#selling{
-    margin-top: 25px;
-    margin-bottom: 25px;
 }
 
 #already{
