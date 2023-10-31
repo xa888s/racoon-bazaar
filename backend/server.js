@@ -122,10 +122,6 @@ app.get('/retrieveSales',async(req,res)=>{
     res.send(sells);
 })
 
-app.post('/searchSales',async(req,res)=>{
-    const sales = await getCertainSale(bookCourseNumber);
-    res.send(sales);
-})
 
 app.post('/searchSalesByName', async(req,res)=>{
     const bookSearch = await getBookNameSales(req.body.book_name);
