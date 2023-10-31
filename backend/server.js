@@ -41,21 +41,18 @@ app.use(session({
 
 
 //SETTERs
-//set homepage on intial load of web page
+//set homepage on intial load of web page to login
 app.get('/', async (req,res)=>{
    res.sendFile(path.join(__dirname,'/views/login.html'));
 });
-
+//function that takes user input and sends it off to the database to check if they are valid
+//TODO: Make error page
 app.post('/login', async (req,res)=>{
     console.log(req.body.email);
     /*
     TODO: check if the email is even in the database to begin with
     */
     const userPass = await getHashedPassword(req.body.email);
-    
-    
-    
-    
     //check if the password inputed matches with the one on the db
     const isMatch = await bcrypt.compare(req.body.password, userPass);
     //if the password matches, then set the session user to the email for later storage
@@ -70,9 +67,6 @@ app.post('/login', async (req,res)=>{
     else{
         console.log("Your password or email are invalid");
     }
-
-    
-
 })
 
 app.get('/register', async(req,res)=>{
@@ -110,6 +104,7 @@ app.post('/insertOrder', async(req,res)=>
     const bookCond = req.body.condition;
     const bookPrice = req.body.price;
     const userID = req.session.user_id;
+    console.log(userID);
     
    //iteration 2 MUST needs: sanitize input to prevent malicious SQL quackery
     const order = await insertSale(bookName, courseCode, bookCond, bookPrice,userID);
@@ -164,8 +159,6 @@ app.post('/registerAccount', async(req,res)=>{
     try{
         //TODO: Make sure the email being used isn't already in the database
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-
-        
         const userRegister = await createUser(req.body.user_firstName,
             req.body.user_lastName,
             req.body.user_major,
@@ -179,6 +172,38 @@ app.post('/registerAccount', async(req,res)=>{
         console.log("Error", e.name);
         console.log("Error", e.message);
     }   
+})
+
+
+//logout to destroy session
+app.get('/logOut', async(req, res)=>{    
+
+    req.session.destroy();
+    res.sendFile(path.join(__dirname,'/views/login.html'));
+})
+
+//autologing button for testing and marking
+app.post('/loginTest', async (req,res)=>{
+
+    const userPass = await getHashedPassword("admin@admin.com");
+
+    //check if the password inputed matches with the one on the db
+    const isMatch = await bcrypt.compare("admin", userPass);
+    //if the password matches, then set the session user to the email for later storage
+    //then redirect to bazaar page
+    if(isMatch){
+        const userID = await getUserID("admin@admin.com");
+        req.session.user = "admin@admin.com";
+        req.session.user_id = userID;
+        res.sendFile(path.join(__dirname,'views/bazaar.html'));
+    }
+    //if the password doesnt match, then notify that either password or email doesnt match
+    else{
+        console.log("Your password or email are invalid");
+    }
+
+    
+
 })
 console.log("Server is running on port 3001");
 
