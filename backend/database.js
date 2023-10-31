@@ -59,8 +59,20 @@ export async function getCourseCodeSales(courseCode){
     Return: JSON Object that contains all rows that have specified Book Condition
 */
 export async function getConditionSales(condition){
-    const [result] = await pool.query("SELECT * from Inventory WHERE course_code='" + condition +"'");
+    const [result] = await pool.query("SELECT * from Inventory WHERE book_condition='" + condition +"'");
     return result;
+}
+
+/*
+    Function that sends a select statement into Inventory table
+    Params: author: varchar (255)
+    Return: JSON Object that contains all rows that have specific autho
+
+*/
+
+export async function getAuthorSales(author){
+    const [result] = await pool.query("Select * from Inventory where author LIKE '%"+author+"%'");
+    return result
 }
 
 /*

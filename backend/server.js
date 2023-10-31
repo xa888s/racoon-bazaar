@@ -10,7 +10,7 @@ import bodyParser from "body-parser";
 import bcrypt from 'bcrypt';
 //functions from database.js
 import {getSells, insertSale, getBookNameSales,getCourseCodeSales, getConditionSales,
-getPriceRangeSales, createUser, getHashedPassword, getUserID, getUserInventory} from './database.js'
+getPriceRangeSales, createUser, getHashedPassword, getUserID, getUserInventory, getAuthorSales} from './database.js'
 //to fix __dirname errors
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -91,7 +91,11 @@ app.get('/contact', async(req,res)=>{
 });
 
 app.get('/register', async(req,res)=>{
-    res.sendFile(path.join(__dirname,'/views/Register.html'));
+    res.sendFile(path.join(__dirname,'/views/register.html'));
+})
+
+app.get('/sell', async(req, res)=>{
+    res.sendFile(path.join(__dirname,'/views/sell.html'));
 })
 
 
@@ -104,10 +108,11 @@ app.post('/insertOrder', async(req,res)=>
     const bookCond = req.body.condition;
     const bookPrice = req.body.price;
     const userID = req.session.user_id;
-    console.log(userID);
+    const author = req.body.author;
+    console.log(author);
     
    //iteration 2 MUST needs: sanitize input to prevent malicious SQL quackery
-    const order = await insertSale(bookName, courseCode, bookCond, bookPrice,userID);
+    const order = await insertSale(bookName, courseCode, bookCond, bookPrice,userID, author);
 
     //show the database with all the sales
     const sells = await getUserInventory(req.session.user_id);
@@ -147,6 +152,13 @@ app.post('/searchByPriceRange', async(req,res)=>{
 app.post('/getUserInventory', async(req,res)=>{
     const userInventory = await getUserInventory(req.session.user_id);
     res.send(userInventory);
+})
+
+app.post('/searchSalesByAuthor', async(req,res)=>{
+    const author = req.body.author_name;
+    const authorInventory = await getAuthorSales(author);
+    
+    res.send(authorInventory);
 })
 
 
