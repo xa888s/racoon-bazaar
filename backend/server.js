@@ -129,6 +129,7 @@ app.get('/retrieveSales',async(req,res)=>{
 
 
 app.post('/searchSalesByName', async(req,res)=>{
+    console.log(req.body.book_name);
     const bookSearch = await getBookNameSales(req.body.book_name);
     res.send(bookSearch);
 })
