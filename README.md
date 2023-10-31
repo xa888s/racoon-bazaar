@@ -18,7 +18,7 @@ The system will be build using Node.js with various modules such as:
 - [bcrypt](https://www.npmjs.com/package/bcrypt): for hashing passwords and all that jazz
 
 
-[Requirements](backend/docs/Requirements.md)
+[Requirements](backend/Diagrams/docs/Requirements.md)
 
 
 ## Analysis
