@@ -15,7 +15,7 @@
 - A user can input malicous code that could break the integrity of the database.
 
 ##### System State on Completion
-- 
+- User is logged in. The server will display all the books that student is interested in.
 </details>
 
 
@@ -24,7 +24,6 @@
 
 
 <details>
-
 <summary>Scenario: Putting a book up for sale</summary>
 
 ##### Initial Assumption
@@ -50,57 +49,55 @@
 <summary>Scenario: Buying a book </summary>
 
 ##### Initial Assumption
--  
+- Student is logged in. An order in the database is valid.  
 
 
 ##### Normal
--
+- The user sees a book that they want. They click a button next to it to say that they want it. The server takes their user_id and the sellers user_id and makes the connection between them. This data is then sent off database.
 
+- On completion, the seller can see that an offer has been made on their book. The seller can choose to email the buyer.
 ##### What Can Go Wrong
-- 
+- 2 Users could click on the buttom at the same time, resulting in a double order
 
-- 
+- User could be wanting to buy their own order.
 
 ##### System State on Completion
-- 
+- The server will tell the user that the seller will be notified. 
 </details>
 
 <details>
 <summary>Scenario: Login </summary>
 
 ##### Initial Assumption
-- 
+- A student already has registered for an account.
 
 
 ##### Normal
-- 
+- A student inputs their email and password. If the pair is in the database, the server will grant them access to the Bazaar. If the pair is not in the database, then they will not be let in.
 
 ##### What Can Go Wrong
-- 
-
-- 
+- User could input malicous SQL code.
 
 ##### System State on Completion
-- 
-
+- The server grants the user a Session token that hold their info for either a day or until they log out.
 </details>
 
 <details>
 <summary>Scenario: Registering an account </summary>
 
 ##### Initial Assumption
-- 
+- A student does not have an account for the Bazaar.
 
 
 ##### Normal
-- 
+- A student inputs their first name, last name, major, phone number, desired password, and email.
 
 ##### What Can Go Wrong
-- 
+- A student could input identical information that is already in the database.
 
-- 
+- A student could attempt to use malicious code to extract/destroy integrity of the database.
 
 ##### System State on Completion
-- 
+- The student will then be redirected to the login page.
 
 </details>

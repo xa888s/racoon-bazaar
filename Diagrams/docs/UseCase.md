@@ -19,3 +19,5 @@ the name of the book, the author of the book, the course code that the book is a
 A logged in student can buy a book that is up for sale on the Bazaar. The student selects the book they want, and a location they want to meet, and the server will take that students user id and email and story it in the database that houses the sellers user id and email with the students user id and email. The seller will be notified that the student has shown interest in the sale. 
 
 
+#### Student viewing offers for their book
+Once a student has put a book up for sale, they can view what offers have been on it. The student can view a log of various users and their price offers. The student can then choose to accept a buyers offer and they can then contact them. Once the sale is complete, all offers related that order are erased. 
