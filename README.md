@@ -1,5 +1,5 @@
 # Racoon Bazaar
-
+## [Current Bugs](https://github.com/xa888s/racoon-bazaar/issues/)
 ## System Overview
 The purpose for Racoon Bazaar is to have a platform for students to buy and sell their textbooks they no longer need
 
