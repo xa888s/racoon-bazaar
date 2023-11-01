@@ -39,6 +39,7 @@ export async function insertSale(book_name, course_code, condition, price, user_
     Return: JSON Object that contains all rows that have specified Book Name
 */
 export async function getBookNameSales(bookName){
+    console.log(bookName); // test
     const [result] = await pool.query("SELECT * from Inventory WHERE book_name = '" + bookName +"'");
     return result;
 }

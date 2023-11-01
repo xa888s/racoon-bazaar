@@ -23,6 +23,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 import session from "express-session";
 
+// Function section
+function checkInput(input) {
+    // Check if the input is null or undefined (i.e search field is left empty)
+    //console.log(input);
+    if (input == 0 || input == " " || input == undefined) {
+        //console.log(input);
+        return false; // Input is null or undefined
+    }
+    return true; // Input is valid
+}
 
 //Create a session object that lasts for one day
 const oneDay = 1000 * 60 *60 *24;
@@ -80,8 +90,6 @@ app.get('/bazaar', async(req,res)=>{
     return res.status(200).send("Welcome to the dashboard");
 })
 
-
-
 app.get('/about', async(req,res)=>{
    res.sendFile(path.join(__dirname,'/views/about.html'));
 });
@@ -101,23 +109,36 @@ app.get('/sell', async(req, res)=>{
 
 
 //INSERTERS
+// helper function usage is utilized in retrievers and inserters
 app.post('/insertOrder', async(req,res)=>
 {   //put body properties as variables
     const bookName = req.body.book_name;
     const courseCode = req.body.course_code;
     const bookCond = req.body.condition;
     const bookPrice = req.body.price;
+<<<<<<< Updated upstream
     const userID = req.session.user_id;
     const author = req.body.author;
     console.log(author);
     
+=======
+
+    if (!checkInput(bookName) || !checkInput(courseCode) || 
+    !checkInput(bookCond) || !checkInput(bookPrice)){
+        res.status(400).send("Invalid input data. Check book name, course code, book condition & price fields for invalid input");
+    }
+
+>>>>>>> Stashed changes
    //iteration 2 MUST needs: sanitize input to prevent malicious SQL quackery
     const order = await insertSale(bookName, courseCode, bookCond, bookPrice,userID, author);
 
     //show the database with all the sales
     const sells = await getSells();
     res.send(sells);
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
 })
 
 //RETRIEVERS
@@ -127,27 +148,69 @@ app.get('/retrieveSales',async(req,res)=>{
     res.send(sells);
 })
 
+<<<<<<< Updated upstream
+=======
+app.post('/searchSales',async(req,res)=>{
+    const checkBookCourseCode = req.body.course_code;
+    if (!checkInput(checkBookCourseCode)){
+        res.status(400).send("Invalid input data. Make sure book course code input is valid.");
+    }
+    const sales = await getCertainSale(bookCourseNumber);
+    res.send(sales);
+})
+>>>>>>> Stashed changes
 
 app.post('/searchSalesByName', async(req,res)=>{
-    const bookSearch = await getBookNameSales(req.body.book_name);
-    res.send(bookSearch);
+    const bookCourseName = req.body.book_name;
+    if (!checkInput(bookCourseName)) {
+        //console.log(typeof(bookCourseName));
+        //console.log("flag book name " + bookCourseName);
+        res.status(400).send("Invalid input data. Cannot leave Book Name search field empty");
+    }
+    else { 
+        const bookSearch = await getBookNameSales(req.body.book_name);
+        res.send(bookSearch);
+    }
 })
 
 
 app.post('/searchSalesByCourse', async(req,res)=>{
-    const bookSearch = await getCourseCodeSales(req.body.course_code);
-    res.send(bookSearch);
+    const bookCourseCode = req.body.course_code;
+    if (!checkInput(bookCourseCode)) {
+        //console.log("flag course code");
+        res.status(400).send("Invalid input data. Cannot leave Course Code search field empty");
+        // filter for null and non numerical/alpha characters
+    }
+    else {
+        const bookSearch = await getCourseCodeSales(req.body.course_code);
+        res.send(bookSearch);
+    }
 })
 
 app.post('/searchSalesByCondition', async(req,res)=>{
-    const bookSearch = await getConditionSales(req.body.condition);
-    res.send(bookSearch);
+    const bookConditionCode = req.body.condition;
+    if (!checkInput(bookConditionCode)) {
+       // console.log("flag condition code");
+        res.status(400).send("Invalid input data. Cannot leave Book Condition field empty");
+    }
+    else {
+        const bookSearch = await getConditionSales(req.body.condition);
+        res.send(bookSearch);
+    } 
 })
 
 app.post('/searchByPriceRange', async(req,res)=>{
-    const bookSearch = await getPriceRangeSales(req.body.minPrice, req.body.maxPrice);
-    res.send(bookSearch);
+    const bookMinPrice = req.body.minPrice;
+    const bookMaxPrice = req.body.maxPrice
+    if (!checkInput(bookMinPrice) || !checkInput(bookMaxPrice)){
+        res.status(400).send("Invalid input data. Cannot leave min/max price range field empty");
+    }
+    else{
+        const bookSearch = await getPriceRangeSales(req.body.minPrice, req.body.maxPrice);
+        res.send(bookSearch);
+    }
 })
+<<<<<<< Updated upstream
 
 app.post('/getUserInventory', async(req,res)=>{
     const userInventory = await getUserInventory(req.session.user_id);
@@ -161,6 +224,9 @@ app.post('/searchSalesByAuthor', async(req,res)=>{
     res.send(authorInventory);
 })
 
+=======
+// helper function usage stops here
+>>>>>>> Stashed changes
 
 //create account
 app.post('/registerAccount', async(req,res)=>{
@@ -190,6 +256,7 @@ app.get('/logOut', async(req, res)=>{
     res.sendFile(path.join(__dirname,'/views/login.html'));
 })
 
+<<<<<<< Updated upstream
 //autologing button for testing and marking
 app.post('/loginTest', async (req,res)=>{
 
@@ -213,6 +280,9 @@ app.post('/loginTest', async (req,res)=>{
     
 
 })
+=======
+
+>>>>>>> Stashed changes
 console.log("Server is running on port 3001");
 
 app.listen(3001);
