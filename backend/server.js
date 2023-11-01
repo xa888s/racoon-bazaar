@@ -116,29 +116,23 @@ app.post('/insertOrder', async(req,res)=>
     const courseCode = req.body.course_code;
     const bookCond = req.body.condition;
     const bookPrice = req.body.price;
-<<<<<<< Updated upstream
     const userID = req.session.user_id;
     const author = req.body.author;
     console.log(author);
     
-=======
 
     if (!checkInput(bookName) || !checkInput(courseCode) || 
     !checkInput(bookCond) || !checkInput(bookPrice)){
         res.status(400).send("Invalid input data. Check book name, course code, book condition & price fields for invalid input");
     }
 
->>>>>>> Stashed changes
    //iteration 2 MUST needs: sanitize input to prevent malicious SQL quackery
     const order = await insertSale(bookName, courseCode, bookCond, bookPrice,userID, author);
 
     //show the database with all the sales
     const sells = await getSells();
     res.send(sells);
-<<<<<<< Updated upstream
     
-=======
->>>>>>> Stashed changes
 })
 
 //RETRIEVERS
@@ -148,8 +142,6 @@ app.get('/retrieveSales',async(req,res)=>{
     res.send(sells);
 })
 
-<<<<<<< Updated upstream
-=======
 app.post('/searchSales',async(req,res)=>{
     const checkBookCourseCode = req.body.course_code;
     if (!checkInput(checkBookCourseCode)){
@@ -158,13 +150,10 @@ app.post('/searchSales',async(req,res)=>{
     const sales = await getCertainSale(bookCourseNumber);
     res.send(sales);
 })
->>>>>>> Stashed changes
 
 app.post('/searchSalesByName', async(req,res)=>{
     const bookCourseName = req.body.book_name;
     if (!checkInput(bookCourseName)) {
-        //console.log(typeof(bookCourseName));
-        //console.log("flag book name " + bookCourseName);
         res.status(400).send("Invalid input data. Cannot leave Book Name search field empty");
     }
     else { 
@@ -177,7 +166,6 @@ app.post('/searchSalesByName', async(req,res)=>{
 app.post('/searchSalesByCourse', async(req,res)=>{
     const bookCourseCode = req.body.course_code;
     if (!checkInput(bookCourseCode)) {
-        //console.log("flag course code");
         res.status(400).send("Invalid input data. Cannot leave Course Code search field empty");
         // filter for null and non numerical/alpha characters
     }
@@ -210,7 +198,6 @@ app.post('/searchByPriceRange', async(req,res)=>{
         res.send(bookSearch);
     }
 })
-<<<<<<< Updated upstream
 
 app.post('/getUserInventory', async(req,res)=>{
     const userInventory = await getUserInventory(req.session.user_id);
@@ -219,14 +206,19 @@ app.post('/getUserInventory', async(req,res)=>{
 
 app.post('/searchSalesByAuthor', async(req,res)=>{
     const author = req.body.author_name;
-    const authorInventory = await getAuthorSales(author);
     
-    res.send(authorInventory);
+    if (!checkInput(author)) {
+        res.status(400).send("Invalid input data. Cannot leave author search field empty");
+    }
+    else { 
+        const authorInventory = await getAuthorSales(author);
+        const bookSearch = await getBookNameSales(req.body.book_name);
+        res.send(authorInventory);
+    }
+    
 })
 
-=======
 // helper function usage stops here
->>>>>>> Stashed changes
 
 //create account
 app.post('/registerAccount', async(req,res)=>{
@@ -256,7 +248,6 @@ app.get('/logOut', async(req, res)=>{
     res.sendFile(path.join(__dirname,'/views/login.html'));
 })
 
-<<<<<<< Updated upstream
 //autologing button for testing and marking
 app.post('/loginTest', async (req,res)=>{
 
@@ -280,9 +271,7 @@ app.post('/loginTest', async (req,res)=>{
     
 
 })
-=======
 
->>>>>>> Stashed changes
 console.log("Server is running on port 3001");
 
 app.listen(3001);
