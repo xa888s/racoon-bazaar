@@ -175,6 +175,7 @@ app.post('/searchSalesByName', async(req,res)=>{
 //search sales based by course code
 app.post('/searchSalesByCourse', async(req,res)=>{
     const bookCourseCode = req.body.course_code;
+    console.log(bookCourseCode);
     if (!checkInput(bookCourseCode)) {
         res.status(400).send("Invalid input data. Cannot leave Course Code search field empty");
         // filter for null and non numerical/alpha characters
@@ -200,13 +201,14 @@ app.post('/searchSalesByCondition', async(req,res)=>{
 
 //search sales based by minimum price point and maximum price point
 app.post('/searchByPriceRange', async(req,res)=>{
-    const bookMinPrice = req.body.minPrice;
-    const bookMaxPrice = req.body.maxPrice
+    const bookMinPrice = req.body.min_price;
+    const bookMaxPrice = req.body.max_price;
+    console.log(bookMinPrice);
     if (!checkInput(bookMinPrice) || !checkInput(bookMaxPrice)){
         res.status(400).send("Invalid input data. Cannot leave min/max price range field empty");
     }
     else{
-        const bookSearch = await getPriceRangeSales(req.body.minPrice, req.body.maxPrice);
+        const bookSearch = await getPriceRangeSales(bookMinPrice, bookMaxPrice);
         res.send(bookSearch);
     }
 })
@@ -220,7 +222,9 @@ app.post('/getUserInventory', async(req,res)=>{
 
 //search book based on author name
 app.post('/searchSalesByAuthor', async(req,res)=>{
+
     const author = req.body.author_name;
+
     if (!checkInput(author)) {
         res.status(400).send("Invalid input data. Cannot leave author search field empty");
     }
